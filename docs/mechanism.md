@@ -74,4 +74,26 @@ TipFromTrade 希望把代币交易、内容讨论、审核、打赏和公开凭�
 
 页面每 30 秒重新请求数据。行情与链上索引的更新时间可能不同，因此页面会标明最近更新时间，并在数据暂时不可用时显示“—”。
 
+## 7. BSC 测试网验证记录
+
+2026 年 9 月 23 日，v2.4 固定 0.1 BNB 门槛版本完成公开 BSC 测试网验证。测试网工厂、测试代币和专属金库分别为：
+
+- 工厂：`0x1e92e790e7a3e7bb92177cfaac66b3944d80b58b`
+- 测试代币：`0xec1eD4C7F15057cDF9c318f74E6d1A15a91e7777`
+- 专属金库：`0x920e3dd7c5F4a7305197f17dcDfdBcCe79C15334`
+
+链上凭证：
+
+- [部署 v2.4 工厂](https://testnet.bscscan.com/tx/0x0da416b763c79a01dbf147f8ea80e58eeb0136f3daf2a02a9999a771585b7cc1)
+- [通过 Flap 发射测试代币及金库](https://testnet.bscscan.com/tx/0x885113bca2eee7ddb10e417500eac29902891de541f308b27e7d0155e0197d76)
+- [存入 0.05 tBNB](https://testnet.bscscan.com/tx/0xa7d609e2ad1dfe21454cf8f27627d7b86d889b09559301ecb2ffcd4ee16e081b)，在轮末用只读调用验证低于门槛不能结算；未广播失败交易
+- [补足至 0.1 tBNB](https://testnet.bscscan.com/tx/0x114373ddf65692a7789aeb411aff3971714a83ea336a0dae9a024101dc09aec5)
+- [执行门槛结算](https://testnet.bscscan.com/tx/0x46e3eeda49654c1a71c4429317af04f75567b749da507229736698492745852e)：0.07 tBNB 记入创作者份额、0.02 tBNB 转入回购金库、0.01 tBNB 记入内容份额
+- [存入 0.01 tBNB 开始闲置测试](https://testnet.bscscan.com/tx/0x60219311f72ba8a366be107eddb583208ea17b85961b7046289a662a7b49fe3c)
+- [执行 30 分钟闲置结算](https://testnet.bscscan.com/tx/0xec3cb77e83ea6ef01131636defa2f6e49322a9c7209b04fe506db362c005726f)：0.007 tBNB 记入创作者份额、0.002 tBNB 转入回购金库、0.001 tBNB 记入内容份额
+
+全部七笔交易回执均为成功。测试结束后的链上读数为：工厂版本 `v2.4`、门槛 `0.1 BNB`、创作者累计待释放 `0.077 tBNB`、内容累计待释放 `0.011 tBNB`、未分配余额为零。
+
+这两笔测试收入是直接向金库发送的确定性测试资金，用于验证门槛、周期和分账逻辑，不代表已经产生真实 Flap 交易税。测试没有执行币安广场站内打赏，也没有执行真实的 TFT 回购或销毁。
+
 
