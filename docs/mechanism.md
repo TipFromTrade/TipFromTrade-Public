@@ -102,22 +102,21 @@ TipFromTrade 希望把代币交易、内容讨论、审核、打赏和公开凭�
 
 测试合约：
 
-- 测试触发服务：`0x3f71fcb862ec01479dd69467dd6c1b0f1a913ae0`
-- v2.5 候选工厂：`0x6a0254999c9877f9634e9a5e1e440ed4960601ca`
-- 测试代币：`0x7BE35081EeDD9f1adc14B9eA0A0470CDbE167777`
-- 专属金库：`0x9a30C13370170E70201B1CC15C1F0ED39B20C771`
+- Flap 官方测试网触发服务：`0x560E9830926C9e0EB98a59c6b9902383Fc0D9Eb2`
+- v2.5 候选工厂：`0x893b67daad953738f7e431e199570cb1ac18ccac`
+- 测试代币：`0x4B345b50bcFEd73f19eBfA337924dfc74Ee87777`
+- 专属金库：`0xE1f7F94fB88A3FeF886a16Ad28705666855087a6`
 
 链上凭证：
 
-- [部署测试触发服务](https://testnet.bscscan.com/tx/0x0db801fa6fe79eb391ada26eb82d676b12fcb629b4c96878497270befc8a9c76)
-- [部署 v2.5 候选工厂](https://testnet.bscscan.com/tx/0xd01322bc35e61be14b803844b044180d66fc5dcc1577aa8658a5bcb9d6102a3c)
-- [通过 Flap 发射测试代币及金库](https://testnet.bscscan.com/tx/0x1d3f052ad4d982869b265e74303d39d918e6aaf9b7736b1d395a3932bc969041)
-- [向金库存入 0.1 tBNB](https://testnet.bscscan.com/tx/0xfa2e35ff645f73ab7fde15c504f6a1a26985e73b0069c972e4ad4cef9cfa4076)
-- [登记轮末触发请求](https://testnet.bscscan.com/tx/0x61cd8ee4456e8c40da91be36ea76acdd966bce914390d57ec96aa389e7acee26)
-- [执行经过身份校验的触发回调](https://testnet.bscscan.com/tx/0x42b4ab87483dba7395264750950bd91225540ad49dff1a4798bd5147a0e5feb8)
+- [部署 v2.5 候选工厂](https://testnet.bscscan.com/tx/0x44955377fbfa2baef6316062e966ce3d6d7f4819ce907f50689cd14c97015c52)
+- [通过 Flap 发射测试代币及金库](https://testnet.bscscan.com/tx/0x3a28a6d85f730b46336b3c7a957a709ae012d024c0618401cb884968217c0546)
+- [向金库存入 0.1 tBNB](https://testnet.bscscan.com/tx/0xc40805908c53eb6d01be14aa04d4a561f58cf87d9f374a3fc0ca6be328afe521)
+- [登记轮末触发请求](https://testnet.bscscan.com/tx/0x383ee96e352ae18f4abae9d5609a933274aee18658f463020db1f483b74c0215)
+- [Flap 官方服务自动执行回调](https://testnet.bscscan.com/tx/0x48bd7279d7afaebc49f18db3df1aee4c7ebf52824f77cd13f322fcbd97970937)
 
-执行后，0.1 tBNB 被准确记账为 0.07 tBNB 创作者份额、0.02 tBNB TFT 回购份额和 0.01 tBNB 内容奖励份额，未分配余额为零。测试还确认普通钱包不能伪造触发服务回调。
+执行后，0.1 tBNB 被准确记账为 0.07 tBNB 创作者份额、0.02 tBNB TFT 回购份额和 0.01 tBNB 内容奖励份额，未分配余额为零。Flap 官方服务的请求 `39511` 状态为 `EXECUTED`，全程没有人工执行或重试。测试还确认普通钱包不能伪造触发服务回调。
 
-测试网使用的是本次验证专用触发服务模拟合约，因为 Flap 当前公开的是 BSC 主网触发服务地址。该结果证明候选合约的链上流程按预期工作，不等于独立安全审计或 Flap 官方登记。主网部署前仍需完成代码审计，并由 Flap 或其认可的审核方登记工厂；在此之前，Flap 页面可能继续显示“未验证”。
+该结果证明候选合约能够接入 Flap 官方 BSC 测试网基础设施并按预期完成链上流程，但不等于独立安全审计或 Flap 官方登记。主网部署前仍需完成代码审计，并由 Flap 或其认可的审核方登记工厂；在此之前，Flap 页面可能继续显示“未验证”。
 
 
