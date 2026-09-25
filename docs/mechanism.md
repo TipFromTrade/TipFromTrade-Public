@@ -98,6 +98,38 @@ TipFromTrade 希望把代币交易、内容讨论、审核、打赏和公开凭�
 
 ## 8. v2.5 候选版本测试网验证
 
+### Beacon 固定候选版本（2026 年 9 月 25 日）
+
+加入 UpgradeableBeacon 的 v2.5 固定候选版本通过官网验证页完成了第二次
+BSC 测试网端到端测试。所有交易回执均成功，工厂链上读数与固定运营、托管、
+回购及 Flap Trigger Service 地址一致，Beacon 与实现合约均存在代码，审计阶段
+尚未永久锁定升级。
+
+测试合约：
+
+- 工厂：`0x1CA1BD05Fc55f8cD1740d58CB2F4Dd4d94d84C56`
+- UpgradeableBeacon：`0x7D8Ffa22f4A269E973C381301E7BB66308774DeE`
+- 金库实现合约：`0x41e935E58167b87D4C4D4D69FE0CFd2e453844EA`
+- 测试代币：`0xF4BC47571C891314fe55b6DA4B00a37798e37777`
+- 金库代理：`0x5e65540Ed65998D79BFA41bc8363D412DD120eB9`
+
+链上凭证：
+
+- [部署 Beacon 工厂](https://testnet.bscscan.com/tx/0xf98f8d04daef724fa0b83524cc0c7c5c058ffa44aa7a1f6c941075acb339dd29)
+- [通过 Flap 发射测试代币和金库](https://testnet.bscscan.com/tx/0xdfdd39a383294cadf393cb96d622b65696568e7a6fef14aefd7d83dc3f0d8d43)
+- [存入 0.05 tBNB 验证低于门槛](https://testnet.bscscan.com/tx/0x2e68d60dfb7add84c69f7791855d46de765185553cce140768c296039d5e655d)
+- [补足至 0.1 tBNB](https://testnet.bscscan.com/tx/0x0b8d532de9374a82ea52470581bf0b87387227608fa2bbc4816f8c56d55aae12)
+- [常规门槛结算](https://testnet.bscscan.com/tx/0x5c302cfe056c416391543a4954045a97f2bfa011f111d7dafffeb28f8c7d7581)
+- [存入 0.01 tBNB 开始闲置测试](https://testnet.bscscan.com/tx/0xacd020101edc5db9f36f0032536db2919f614bca3f16139b04dc161f7ff00eda)
+- [30 分钟闲置结算](https://testnet.bscscan.com/tx/0x4edb81010ea4a3d3024bf962963b894c9adf1eca21d243e19484f914651c22cf)
+
+低于门槛的只读结算预检按预期回退，没有发送失败交易。常规结算事件记录
+`0.1 / 0.07 / 0.02 / 0.01 / idle=false`；闲置结算事件记录
+`0.01 / 0.007 / 0.002 / 0.001 / idle=true`。最终金库读数为创作者累计
+`0.077 tBNB`、内容奖励累计 `0.011 tBNB`、未分配余额 `0`。
+
+### Flap 官方触发服务集成（2026 年 9 月 24 日）
+
 2026 年 9 月 24 日，v2.5 候选金库在 BSC 测试网完成一次端到端链上验证。该版本加入 Flap 定时触发服务接口、回调来源与请求编号校验、重放保护、紧急资产恢复入口，并继续固定执行 1% / 1% 税率、0.1 BNB 门槛和 70% / 20% / 10% 分配。
 
 测试合约：
